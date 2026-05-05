@@ -28,7 +28,11 @@ function App() {
           <Route path="/" element={<Navigate to="/templates" />} />
           <Route 
             path="/templates" 
-            element={<Templates isAuthenticated={isAuthenticated} />} 
+            element={
+              <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <Templates isAuthenticated={isAuthenticated} />
+              </ProtectedRoute>
+            } 
           />
           <Route 
             path="/favorites" 
